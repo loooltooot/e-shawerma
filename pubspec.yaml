@@ -67,6 +67,8 @@ flutter:
   assets:
     - google_fonts/
     - lib/res/img/
+    - lib/res/img/shaurma/
+    - lib/res/img/cup/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

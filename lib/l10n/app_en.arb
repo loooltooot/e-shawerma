@@ -3,5 +3,20 @@
   "welcomeButtonText": "shawermable",
   "registrationTitle": "what's your name?",
   "registrationTextFieldHint": "here",
-  "registrationButtonText": "start"
+  "registrationButtonText": "start",
+  "homeListTitle": "menu",
+  "homeMakeOrderButton": "make order",
+  "drawerAmountOfShawerma": "amount of shawerma",
+  "drawerViewOrders": "orders",
+  "ordersListOrderTitle": "order",
+
+  "stShawerma_png": "shawerma_default.png",
+  "stShawerma_jpg": "shawerma_default.jpg",
+  "stShawerma_svg": "shawerma_default.svg",
+  "chShawerma_png": "shawerma_cheese.png",
+  "chShawerma_jpg": "shawerma_cheese.jpg",
+  "chShawerma_svg": "shawerma_cheese.svg",
+  "cup_png": "coffee.png",
+  "cup_jpg": "coffee.jpg",
+  "cup_svg": "coffee.svg"
 }

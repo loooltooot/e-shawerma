@@ -24,7 +24,7 @@ class AppOutlinedButton extends StatelessWidget {
         child: Text(
           title,
           style: const TextStyle(
-            fontSize: 16,
+            fontSize: 18,
             color: Colors.black
           ),
         )

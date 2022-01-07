@@ -33,8 +33,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 child: Column(
                   children: [
                     const Padding(padding: EdgeInsets.only(top: 50)),
-                    AppMediumText(AppLocalizations.of(context)!.registrationTitle),
-                    const Padding(padding: EdgeInsets.only(bottom: 90)),
+                    AppMediumText(AppLocalizations.of(context)!.registrationTitle,),
+                    const Padding(padding: EdgeInsets.only(bottom: 100)),
                     SizedBox(
                       width: 300,
                       child: TextField(
@@ -43,27 +43,28 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         },
                         onSubmitted: (input) {
                           if(_userName.trim() != '') {
-                            Navigator.of(context).push(AppRouteFactory
+                            Navigator.of(context).pushReplacement(AppRouteFactory
                                 .createRoute(const Home()));
                           }
+                          _userName = '';
                         },
                         textAlign: TextAlign.center,
                         cursorColor: Colors.black,
                         decoration: InputDecoration(
                           hintText: AppLocalizations.of(context)!.registrationTextFieldHint,
                           enabledBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                              borderSide: BorderSide(
-                                  color: Colors.black,
-                                  width: 1.5
-                              )
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                              width: 1.5
+                            )
                           ),
                           focusedBorder: const OutlineInputBorder(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
-                              borderSide: BorderSide(
-                                  color: Colors.black,
-                                  width: 1.5
-                              )
+                            borderRadius: BorderRadius.all(Radius.circular(30)),
+                            borderSide: BorderSide(
+                              color: Colors.black,
+                              width: 1.5
+                            )
                           ),
                         ),
                         style: const TextStyle(
@@ -81,7 +82,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               children: [
                 Container(
                   height: 300,
-                  width: double.infinity,
+                  width: double.maxFinite,
                   decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('lib/res/img/registrationTrim.png'),
@@ -93,7 +94,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   left: 260,
                   child: AppOutlinedButton(
                     onPressed: () {
-
+                      if(_userName.trim() != '') {
+                        Navigator.of(context).pushReplacement(AppRouteFactory
+                            .createRoute(const Home()));
+                      }
+                      _userName = '';
                     },
                     title: AppLocalizations.of(context)!.registrationButtonText
                   ),

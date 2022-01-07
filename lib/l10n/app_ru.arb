@@ -3,5 +3,20 @@
   "welcomeButtonText": "шавернуться",
   "registrationTitle": "что написать на твоем стаканчике?",
   "registrationTextFieldHint": "сюда",
-  "registrationButtonText": "поехали"
+  "registrationButtonText": "поехали",
+  "homeListTitle": "меню",
+  "homeMakeOrderButton": "заказать",
+  "drawerAmountOfShawerma": "съедено шавермы",
+  "drawerViewOrders": "заказы",
+  "ordersListOrderTitle": "заказ",
+
+  "stShawerma_png": "шаверма_стандарт.png",
+  "stShawerma_jpg": "шаверма_стандарт.jpg",
+  "stShawerma_svg": "шаверма_стандарт.svg",
+  "chShawerma_png": "шаверма_сырная.png",
+  "chShawerma_jpg": "шаверма_сырная.jpg",
+  "chShawerma_svg": "шаверма_сырная.svg",
+  "cup_png": "кофе.png",
+  "cup_jpg": "кофе.jpg",
+  "cup_svg": "кофе.svg"
 }

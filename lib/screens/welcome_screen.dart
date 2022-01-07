@@ -36,7 +36,7 @@ class WelcomeScreen extends StatelessWidget {
               const Spacer(flex: 2,),
               Container(
                 padding: const EdgeInsets.only(left: 29, right: 29),
-                child: AppMediumText(AppLocalizations.of(context)!.welcomeText),
+                child: AppMediumText(AppLocalizations.of(context)!.welcomeText,),
               ),
               const Spacer(flex: 3,),
               Row(
@@ -44,14 +44,14 @@ class WelcomeScreen extends StatelessWidget {
                   const Spacer(flex: 1,),
                   TextButton(
                     onPressed: () {
-                      Navigator.of(context).push(AppRouteFactory
+                      Navigator.of(context).pushReplacement(AppRouteFactory
                           .createRoute(const RegistrationScreen()));
                     },
                     child: Text(
                       AppLocalizations.of(context)!.welcomeButtonText,
                       style: const TextStyle(
                         color: Colors.black,
-                        fontSize: 16,
+                        fontSize: 18,
                         decoration: TextDecoration.underline
                       ),
                     )
