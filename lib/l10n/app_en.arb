@@ -6,7 +6,7 @@
   "registrationButtonText": "start",
   "homeListTitle": "menu",
   "homeMakeOrderButton": "make order",
-  "drawerAmountOfShawerma": "amount of shawerma",
+  "drawerAmountOfShawerma": "amount of shawerma: ",
   "drawerViewOrders": "orders",
   "ordersListOrderTitle": "order",
 
@@ -18,5 +18,8 @@
   "chShawerma_svg": "shawerma_cheese.svg",
   "cup_png": "coffee.png",
   "cup_jpg": "coffee.jpg",
-  "cup_svg": "coffee.svg"
+  "cup_svg": "coffee.svg",
+  "tea_png": "tea.png",
+  "tea_jpg": "tea.jpg",
+  "tea_svg": "tea.svg"
 }

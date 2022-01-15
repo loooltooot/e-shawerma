@@ -1,6 +1,9 @@
 import 'package:e_shaurma/res/classes/app_card.dart';
 import 'package:e_shaurma/res/classes/app_medium_text.dart';
+import 'package:e_shaurma/res/classes/app_route.dart';
 import 'package:e_shaurma/res/classes/card_listener.dart';
+import 'package:e_shaurma/screens/drawer_screen.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
@@ -31,6 +34,18 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
+          Positioned(
+            top: 20,
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(AppRouteFactory
+                    .createRouteLeftToRight(const DrawerScreen()));
+              },
+              icon: const Icon(Icons.menu),
+              color: Colors.orange,
+              iconSize: 36,
+            ),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
@@ -49,6 +64,9 @@ class _HomeState extends State<Home> {
                       padding: EdgeInsets.only(top: 5),
                   ),
                   AppMediumText(AppLocalizations.of(context)!.homeListTitle,),
+                  const Padding(
+                    padding: EdgeInsets.only(top: 5),
+                  ),
                   Expanded(
                     flex: 1,
                     child: SizedBox(
@@ -59,60 +77,89 @@ class _HomeState extends State<Home> {
                           return true;
                         },
                         child: ListView(
-                          padding: const EdgeInsets.only(bottom: 5),
+                          padding: const EdgeInsets.all(5),
                           children: [
                             AppCard(
                               title: AppLocalizations.of(context)!.stShawerma_png,
                               image: 'lib/res/img/shaurma/st.png',
-                              semanticTag: 'st_png',
+                              semanticTag: 'st.png',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.stShawerma_jpg,
                               image: 'lib/res/img/shaurma/st.jpg',
-                              semanticTag: 'st_jpg',
+                              semanticTag: 'st.jpg',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.stShawerma_svg,
                               image: 'lib/res/img/shaurma/st.svg.png',
-                              semanticTag: 'st_svg',
+                              semanticTag: 'st.svg.png',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.chShawerma_png,
                               image: 'lib/res/img/shaurma/ch.png',
-                              semanticTag: 'ch_png',
+                              semanticTag: 'ch.png',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.chShawerma_jpg,
                               image: 'lib/res/img/shaurma/ch.jpg',
-                              semanticTag: 'ch_jpg',
+                              semanticTag: 'ch.jpg',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.chShawerma_svg,
                               image: 'lib/res/img/shaurma/ch.svg.png',
-                              semanticTag: 'ch_svg',
+                              semanticTag: 'ch.svg.png',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.cup_png,
                               image: 'lib/res/img/cup/cup.png',
-                              semanticTag: 'cup_png',
+                              semanticTag: 'cup.png',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.cup_jpg,
                               image: 'lib/res/img/cup/cup.jpg',
-                              semanticTag: 'cup_jpg',
+                              semanticTag: 'cup.jpg',
                               listener: _listener,
                             ),
+                            const Divider(height: 1.5,),
                             AppCard(
                               title: AppLocalizations.of(context)!.cup_svg,
                               image: 'lib/res/img/cup/cup.svg.png',
-                              semanticTag: 'cup_svg',
+                              semanticTag: 'cup.svg',
+                              listener: _listener,
+                            ),
+                            const Divider(height: 1.5,),
+                            AppCard(
+                              title: AppLocalizations.of(context)!.tea_png,
+                              image: 'lib/res/img/tea.png',
+                              semanticTag: 'tea.png',
+                              listener: _listener,
+                            ),
+                            const Divider(height: 1.5,),
+                            AppCard(
+                              title: AppLocalizations.of(context)!.tea_jpg,
+                              image: 'lib/res/img/tea.jpg',
+                              semanticTag: 'tea.jpg',
+                              listener: _listener,
+                            ),
+                            const Divider(height: 1.5,),
+                            AppCard(
+                              title: AppLocalizations.of(context)!.tea_svg,
+                              image: 'lib/res/img/tea.svg.png',
+                              semanticTag: 'tea.svg.png',
                               listener: _listener,
                             ),
                           ],
@@ -129,7 +176,9 @@ class _HomeState extends State<Home> {
                     child: TextButton(
                       onPressed: () {
                         // todo
-                        _listener.clearOrder();
+                        setState(() {
+                          _listener.clearOrder();
+                        });
                       },
                       style: ButtonStyle(
                         overlayColor: MaterialStateProperty.all(const Color(

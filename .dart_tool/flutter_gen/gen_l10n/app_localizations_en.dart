@@ -29,7 +29,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeMakeOrderButton => 'make order';
 
   @override
-  String get drawerAmountOfShawerma => 'amount of shawerma';
+  String get drawerAmountOfShawerma => 'amount of shawerma: ';
 
   @override
   String get drawerViewOrders => 'orders';
@@ -63,4 +63,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cup_svg => 'coffee.svg';
+
+  @override
+  String get tea_png => 'tea.png';
+
+  @override
+  String get tea_jpg => 'tea.jpg';
+
+  @override
+  String get tea_svg => 'tea.svg';
 }

@@ -139,7 +139,7 @@ abstract class AppLocalizations {
   /// No description provided for @drawerAmountOfShawerma.
   ///
   /// In ru, this message translates to:
-  /// **'съедено шавермы'**
+  /// **'съедено шавермы: '**
   String get drawerAmountOfShawerma;
 
   /// No description provided for @drawerViewOrders.
@@ -207,6 +207,24 @@ abstract class AppLocalizations {
   /// In ru, this message translates to:
   /// **'кофе.svg'**
   String get cup_svg;
+
+  /// No description provided for @tea_png.
+  ///
+  /// In ru, this message translates to:
+  /// **'чай.png'**
+  String get tea_png;
+
+  /// No description provided for @tea_jpg.
+  ///
+  /// In ru, this message translates to:
+  /// **'чай.jpg'**
+  String get tea_jpg;
+
+  /// No description provided for @tea_svg.
+  ///
+  /// In ru, this message translates to:
+  /// **'чай.svg'**
+  String get tea_svg;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {

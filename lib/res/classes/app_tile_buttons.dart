@@ -55,7 +55,7 @@ class _AppTileButtonsState extends State<AppTileButtons> {
             height: _counter > 0 ? 40 : 0,
             child: Row(
               children: [
-                Padding(padding: EdgeInsets.only(right: 5)),
+                const Padding(padding: EdgeInsets.only(right: 5)),
                 Expanded(
                   child: Text(
                     _counter.toString(),

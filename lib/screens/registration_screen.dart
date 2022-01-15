@@ -1,3 +1,4 @@
+import 'package:e_shaurma/db/database_provider.dart';
 import 'package:e_shaurma/res/classes/app_outlined_button.dart';
 import 'package:e_shaurma/res/classes/app_route.dart';
 import 'package:e_shaurma/screens/home.dart';
@@ -43,8 +44,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                         },
                         onSubmitted: (input) {
                           if(_userName.trim() != '') {
+                            DatabaseProvider.dbProvider.insertClient(_userName);
                             Navigator.of(context).pushReplacement(AppRouteFactory
-                                .createRoute(const Home()));
+                                .createRouteRightToLeft(const Home()));
                           }
                           _userName = '';
                         },
@@ -95,8 +97,9 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: AppOutlinedButton(
                     onPressed: () {
                       if(_userName.trim() != '') {
+                        DatabaseProvider.dbProvider.insertClient(_userName);
                         Navigator.of(context).pushReplacement(AppRouteFactory
-                            .createRoute(const Home()));
+                            .createRouteRightToLeft(const Home()));
                       }
                       _userName = '';
                     },

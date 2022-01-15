@@ -18,13 +18,14 @@ class AppCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      height: 140,
       child: Row(
         children: [
           Container(
-            width: 60,
-            height: 60,
+            width: 130,
+            height: 130,
             decoration: BoxDecoration(
               image: DecorationImage(
                 fit: BoxFit.fill,
@@ -33,20 +34,28 @@ class AppCard extends StatelessWidget {
             ),
           ),
           const Padding(padding: EdgeInsets.only(left: 10)),
-          Expanded(
-            child: Text(
-              title,
-              style: const TextStyle(
-                fontSize: 17,
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Padding(padding: EdgeInsets.only(top: 20)),
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 17,
+                  ),
+                ),
               ),
-            ),
-          ),
-          AppTileButtons(
-            listener: listener,
-            tag: semanticTag,
-          ),
+              const Padding(padding: EdgeInsets.only(top: 30)),
+              AppTileButtons(
+                listener: listener,
+                tag: semanticTag,
+              ),
+              const Padding(padding: EdgeInsets.only(bottom: 10)),
+            ],
+          )
         ],
-      )
+      ),
     );
   }
 }

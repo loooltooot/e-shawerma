@@ -45,7 +45,7 @@ class WelcomeScreen extends StatelessWidget {
                   TextButton(
                     onPressed: () {
                       Navigator.of(context).pushReplacement(AppRouteFactory
-                          .createRoute(const RegistrationScreen()));
+                          .createRouteRightToLeft(const RegistrationScreen()));
                     },
                     child: Text(
                       AppLocalizations.of(context)!.welcomeButtonText,

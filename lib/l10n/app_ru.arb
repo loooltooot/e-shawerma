@@ -6,7 +6,7 @@
   "registrationButtonText": "поехали",
   "homeListTitle": "меню",
   "homeMakeOrderButton": "заказать",
-  "drawerAmountOfShawerma": "съедено шавермы",
+  "drawerAmountOfShawerma": "съедено шавермы: ",
   "drawerViewOrders": "заказы",
   "ordersListOrderTitle": "заказ",
 
@@ -18,5 +18,8 @@
   "chShawerma_svg": "шаверма_сырная.svg",
   "cup_png": "кофе.png",
   "cup_jpg": "кофе.jpg",
-  "cup_svg": "кофе.svg"
+  "cup_svg": "кофе.svg",
+  "tea_png": "чай.png",
+  "tea_jpg": "чай.jpg",
+  "tea_svg": "чай.svg"
 }
