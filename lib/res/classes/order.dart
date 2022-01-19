@@ -1,19 +1,26 @@
 class Order {
-  final int id;
-  final String clientName;
+  int? id;
   String date = '';
   Map<String, int> list = {}; // 'ch_png:2 st_svg:1 cup_png:1'
 
-  Order({
-    required this.id,
-    required this.clientName,
-  }) {
-    DateTime time = DateTime.now();
+  Order({this.id});
 
-    date += time.day.toString() + ' ';
-    date += time.hour.toString() + ' ';
-    date += time.minute.toString();
+  Order copy({
+    int? id,
+  }) => Order(id: id ?? this.id);
+
+  Order.fromJSON(Map<String, dynamic> json) {
+    id = json['id'] as int;
+    date = json['date'] as String;
+    list = orderListToMap(json['list'] as String);
   }
+
+  Map<String, dynamic> toJSON() =>
+    {
+      'id': id,
+      'date': date,
+      'list': orderListToString(list)
+    };
 
   int getPositionAmount(String tag) {
     if(list.containsKey(tag)) {
@@ -52,12 +59,23 @@ class Order {
     }
   }
 
-  @override
-  String toString() {
+  String orderListToString(Map l) {
     String result = '';
 
-    list.forEach((key, value) {
+    l.forEach((key, value) {
       result += '$key:$value ';
+    });
+
+    return result;
+  }
+
+  Map<String, int> orderListToMap(String list) {
+    Map<String, int> result = {};
+    List<String> splitList = list.trim().split(' ');
+
+    splitList.forEach((element) {
+      List<String> tempList = element.split(':');
+      result.addAll({tempList[0]:int.parse(tempList[1])});
     });
 
     return result;

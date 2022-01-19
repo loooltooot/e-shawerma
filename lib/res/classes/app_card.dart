@@ -46,12 +46,13 @@ class AppCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(padding: EdgeInsets.only(top: 30)),
-              AppTileButtons(
-                listener: listener,
-                tag: semanticTag,
+              Container(
+                padding: const EdgeInsets.only(top: 30, bottom: 10),
+                child: AppTileButtons(
+                  listener: listener,
+                  tag: semanticTag,
+                ),
               ),
-              const Padding(padding: EdgeInsets.only(bottom: 10)),
             ],
           )
         ],

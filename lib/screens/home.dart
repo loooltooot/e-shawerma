@@ -35,7 +35,8 @@ class _HomeState extends State<Home> {
             ),
           ),
           Positioned(
-            top: 20,
+            top: 40,
+            left: 10,
             child: IconButton(
               onPressed: () {
                 Navigator.of(context).push(AppRouteFactory
@@ -176,6 +177,7 @@ class _HomeState extends State<Home> {
                     child: TextButton(
                       onPressed: () {
                         // todo
+                        _listener.saveOrder();
                         setState(() {
                           _listener.clearOrder();
                         });
