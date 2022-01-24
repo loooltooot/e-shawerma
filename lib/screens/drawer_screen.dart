@@ -2,6 +2,7 @@ import 'package:e_shaurma/db/database_provider.dart';
 import 'package:e_shaurma/res/classes/app_medium_text.dart';
 import 'package:e_shaurma/res/classes/app_route.dart';
 import 'package:e_shaurma/res/classes/app_text_button.dart';
+import 'package:e_shaurma/res/classes/status_controller.dart';
 import 'package:e_shaurma/screens/orders_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -48,11 +49,12 @@ class DrawerScreen extends StatelessWidget {
                   }
                 ),
                 FutureBuilder<String>(
-                  future: DatabaseProvider.dbProvider.getClientAmountById(0),
+                  future: DatabaseProvider.dbProvider.getClientAmountById(),
                   builder: (BuildContext context, AsyncSnapshot<String> snap) {
                     String amount = snap.hasData ? snap.data.toString() : '0';
+                    String status = StatusController.getStatus(int.parse(amount));
                     return Text(
-                        AppLocalizations.of(context)!.drawerAmountOfShawerma + amount
+                        AppLocalizations.of(context)!.drawerAmountOfShawerma + amount + status
                     );
                   }
                 )

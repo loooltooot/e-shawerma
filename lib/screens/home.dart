@@ -15,10 +15,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  CardListener _listener = CardListener();
-
   @override
   Widget build(BuildContext context) {
+    CardListener _listener = CardListener(context: context);
     return Scaffold(
       body: Stack(
         children: [
@@ -139,7 +138,7 @@ class _HomeState extends State<Home> {
                             AppCard(
                               title: AppLocalizations.of(context)!.cup_svg,
                               image: 'lib/res/img/cup/cup.svg.png',
-                              semanticTag: 'cup.svg',
+                              semanticTag: 'cup.svg.png',
                               listener: _listener,
                             ),
                             const Divider(height: 1.5,),
@@ -177,9 +176,8 @@ class _HomeState extends State<Home> {
                     child: TextButton(
                       onPressed: () {
                         // todo
-                        _listener.saveOrder();
                         setState(() {
-                          _listener.clearOrder();
+                          _listener.saveOrder();
                         });
                       },
                       style: ButtonStyle(

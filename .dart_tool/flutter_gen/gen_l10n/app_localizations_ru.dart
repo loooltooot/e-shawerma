@@ -35,7 +35,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get drawerViewOrders => 'заказы';
 
   @override
-  String get ordersListOrderTitle => 'заказ';
+  String get ordersListOrderTitle => 'заказ от ';
 
   @override
   String get stShawerma_png => 'шаверма_стандарт.png';

@@ -151,7 +151,7 @@ abstract class AppLocalizations {
   /// No description provided for @ordersListOrderTitle.
   ///
   /// In ru, this message translates to:
-  /// **'заказ'**
+  /// **'заказ от '**
   String get ordersListOrderTitle;
 
   /// No description provided for @stShawerma_png.

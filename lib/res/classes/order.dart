@@ -51,14 +51,6 @@ class Order {
     list = {};
   }
 
-  void fillMap(String order) {
-    List<String> positions = order.split(' ');
-    for(String pos in positions) {
-      List<String> splitPos = pos.split(':');
-      list.addAll({splitPos[0] : int.parse(splitPos[1])});
-    }
-  }
-
   String orderListToString(Map l) {
     String result = '';
 
@@ -74,10 +66,24 @@ class Order {
     List<String> splitList = list.trim().split(' ');
 
     splitList.forEach((element) {
-      List<String> tempList = element.split(':');
-      result.addAll({tempList[0]:int.parse(tempList[1])});
+      if(element.isNotEmpty) {
+        List<String> tempList = element.split(':');
+        result.addAll({tempList[0]: int.parse(tempList[1])});
+      }
     });
 
     return result;
+  }
+
+  int countAmountOfShawermas() {
+    int counter = 0;
+    List drinksList = ['tea.png', 'tea.jpg', 'tea.svg.png',
+      'cup.png', 'cup.jpg', 'cup.svg.png'];
+
+    list.forEach((key, value) {
+      if(!drinksList.contains(key)) counter += value;
+    });
+
+    return counter;
   }
 }

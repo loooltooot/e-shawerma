@@ -1,4 +1,5 @@
 import 'package:e_shaurma/db/database_provider.dart';
+import 'package:e_shaurma/res/classes/app_order_card.dart';
 import 'package:e_shaurma/res/classes/order.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
@@ -46,6 +47,7 @@ class _OrdersScreenState extends State<OrdersScreen> {
           AppLocalizations.of(context)!.drawerViewOrders,
           style: const TextStyle(
             color: Colors.black,
+            fontSize: 24,
             fontWeight: FontWeight.w700
           ),
         ),
@@ -53,11 +55,24 @@ class _OrdersScreenState extends State<OrdersScreen> {
             color: Colors.black
           )
       ),
-      body: isLoading ? CircularProgressIndicator() : ListView.builder(
-        itemCount: orders.length,
-        itemBuilder: (context, index) {
-          return Text(orders[index].date);
-        }
+      body: isLoading ? CircularProgressIndicator() : NotificationListener<OverscrollIndicatorNotification>(
+        onNotification: (overscroll) {
+          overscroll.disallowGlow();
+          return true;
+        },
+        child: ListView.separated(
+          primary: true,
+          itemCount: orders.length,
+          separatorBuilder: (context, index) => const Divider(height: 1.5,),
+          itemBuilder: (context, index) {
+            return Container(
+              padding: const EdgeInsets.all(12),
+              child: AppOrderCard(
+                order: orders[index],
+              ),
+            );
+          }
+        ),
       ),
     );
   }

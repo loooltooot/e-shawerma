@@ -8,7 +8,7 @@
   "homeMakeOrderButton": "make order",
   "drawerAmountOfShawerma": "amount of shawerma: ",
   "drawerViewOrders": "orders",
-  "ordersListOrderTitle": "order",
+  "ordersListOrderTitle": "order by ",
 
   "stShawerma_png": "shawerma_default.png",
   "stShawerma_jpg": "shawerma_default.jpg",

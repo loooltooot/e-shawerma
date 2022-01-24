@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       home: FutureBuilder(
         future: DatabaseProvider.dbProvider.getClientNameById(0),
         builder: (context, AsyncSnapshot<String> snap) {
-          return snap.data == null || snap.data == '' ? const WelcomeScreen() : const Home();
+          return snap.data != null || snap.data != '' ? const Home() : const WelcomeScreen();
         },
       ),
     );

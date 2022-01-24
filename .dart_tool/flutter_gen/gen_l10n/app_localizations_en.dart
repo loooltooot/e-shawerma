@@ -35,7 +35,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get drawerViewOrders => 'orders';
 
   @override
-  String get ordersListOrderTitle => 'order';
+  String get ordersListOrderTitle => 'order by ';
 
   @override
   String get stShawerma_png => 'shawerma_default.png';

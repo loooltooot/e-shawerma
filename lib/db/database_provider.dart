@@ -52,17 +52,26 @@ class DatabaseProvider {
   Future<String> getClientNameById(id) async {
     final db = await dbProvider.db;
 
-    var res = await db.query("clients", where: "id = ?", whereArgs: [id]);
+    var res = await db.query('clients', where: 'id = ?', whereArgs: [id]);
 
     return res.isEmpty ? '' : res.first['name'] as String;
   }
 
-  Future<String> getClientAmountById(id) async {
+  Future<String> getClientAmountById() async {
     final db = await dbProvider.db;
 
-    var res = await db.query("clients", where: "id = ?", whereArgs: [id]);
+    var res = await db.query('clients', where: 'id = ?', whereArgs: [0]);
 
     return res.isEmpty ? '0' : res.first['amount'] as String;
+  }
+
+  Future<void> updateClientAmount(int add) async {
+    final db = await dbProvider.db;
+
+    final int newVal = int.parse(await getClientAmountById()) + add;
+
+    await db.update('clients', {'amount': newVal},
+        where: 'id = ?', whereArgs: [0]);
   }
 
   Future<Order> insertOrder(Order order) async {
