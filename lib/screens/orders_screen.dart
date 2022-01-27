@@ -52,10 +52,10 @@ class _OrdersScreenState extends State<OrdersScreen> {
           ),
         ),
         iconTheme: const IconThemeData(
-            color: Colors.black
-          )
+          color: Colors.black
+        )
       ),
-      body: isLoading ? CircularProgressIndicator() : NotificationListener<OverscrollIndicatorNotification>(
+      body: isLoading ? const CircularProgressIndicator() : NotificationListener<OverscrollIndicatorNotification>(
         onNotification: (overscroll) {
           overscroll.disallowGlow();
           return true;

@@ -1,3 +1,4 @@
+import 'package:e_shaurma/res/classes/app_animated_image.dart';
 import 'package:e_shaurma/res/classes/app_card.dart';
 import 'package:e_shaurma/res/classes/app_medium_text.dart';
 import 'package:e_shaurma/res/classes/app_route.dart';
@@ -15,6 +16,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  bool _isAnimated = false;
+  List<AppAnimatedImage> _orderList = [];
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     CardListener _listener = CardListener(context: context);
@@ -175,10 +184,17 @@ class _HomeState extends State<Home> {
                     ),
                     child: TextButton(
                       onPressed: () {
-                        // todo
-                        setState(() {
-                          _listener.saveOrder();
-                        });
+                        if(!_isAnimated) {
+                          setState(() {
+                            if(!_listener.orderIsEmpty()) {
+                              _orderList =
+                                  _listener.generateAnimatedImageList();
+                              _isAnimated = !_isAnimated;
+                            }
+                            _listener.saveOrder();
+                          });
+                          changeIsAnimated();
+                        }
                       },
                       style: ButtonStyle(
                         overlayColor: MaterialStateProperty.all(const Color(
@@ -199,9 +215,25 @@ class _HomeState extends State<Home> {
                 ],
               ),
             ),
-          )
+          ),
+          if(_isAnimated) SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Stack(
+              children: _orderList
+            )
+          ) else Container()
         ],
       ),
     );
+  }
+
+  Future<void> changeIsAnimated() async {
+    bool temp = await Future.delayed(const Duration(seconds: 2, milliseconds: 400),
+            () => !_isAnimated);
+
+    setState(() {
+      _isAnimated = temp;
+    });
   }
 }

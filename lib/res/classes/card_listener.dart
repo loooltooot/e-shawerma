@@ -1,4 +1,5 @@
 import 'package:e_shaurma/db/database_provider.dart';
+import 'package:e_shaurma/res/classes/app_animated_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intl/intl.dart';
 
@@ -26,6 +27,10 @@ class CardListener {
     _order = Order();
   }
 
+  bool orderIsEmpty() {
+    return _order.list.isEmpty;
+  }
+
   void saveOrder() async {
     DateTime time = DateTime.now();
     DateFormat format = DateFormat('d MMMM, HH:mm', Localizations.localeOf(context).languageCode);
@@ -33,11 +38,28 @@ class CardListener {
 
     _order.date = date;
 
-    if(_order.list.isNotEmpty) {
+    if(!orderIsEmpty()) {
       await DatabaseProvider.dbProvider
           .updateClientAmount(_order.countAmountOfShawermas());
       await DatabaseProvider.dbProvider.insertOrder(_order);
     }
     clearOrder();
+  }
+
+  List<AppAnimatedImage> generateAnimatedImageList() {
+    List<AppAnimatedImage> result = [];
+    Map temp = _order.list;
+
+    temp.forEach((key, value) {
+      if(value > 1) {
+        for(int i = 0; i < value; i++) {
+          result.add(AppAnimatedImage(tag: key));
+        }
+      } else {
+        result.add(AppAnimatedImage(tag: key));
+      }
+    });
+
+    return result;
   }
 }

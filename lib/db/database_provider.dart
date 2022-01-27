@@ -90,10 +90,6 @@ class DatabaseProvider {
     final db = await dbProvider.db;
 
     final List<Map<String, dynamic>> maps = await db.query('orders');
-
-    maps.forEach((element) {
-      print(element);
-    });
     
     return List.generate(maps.length, (index) => Order.fromJSON(maps[index]));
   }
